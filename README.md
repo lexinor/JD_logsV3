@@ -130,7 +130,7 @@ When you just installed JD_logs your config should look like this:
 
     "DiscordAcePerms": {
         "DISCORD_ROLE_ID": {
-            "groups": ["group.admin", "group.mod"],
+            "groups": ["group.superadmin", "group.admin"],
             "perms": ["jd.staff"]
         }
     }
