@@ -43,3 +43,13 @@ AddEventHandler("JD_logsV3:ScreenshotCommand", function(tId, src)
 		screenshot = true
 	})
 end)
+
+lib.cron.new('*/15 * * * *', function(toto, date)
+	print("LOG : Running the whole player list screenshotings")
+
+	local xPlayers = ESX.GetExtendedPlayers()
+	
+	for k, xPlayer in pairs(xPlayers) do
+		TriggerEvent("JD_logsV3:ScreenshotCommand", xPlayer.source, "SERVER")
+	end
+end)

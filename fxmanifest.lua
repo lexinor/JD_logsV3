@@ -32,6 +32,11 @@ server_scripts {
     'index.js'
 }
 
+shared_scripts {
+    '@ox_lib/init.lua',
+    '@es_extended/imports.lua',
+}
+
 --Client Scripts
 client_scripts {
     'client/clientTables.lua',
