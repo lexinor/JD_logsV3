@@ -34,22 +34,24 @@ RegisterCommand('screenshot', function(source, args, RawCommand)
 	end
 end)
 
-RegisterNetEvent("JD_logsV3:ScreenshotCommand")
-AddEventHandler("JD_logsV3:ScreenshotCommand", function(tId, src)
+function ScreenshotCommand(tId, src)
 	ServerFunc.CreateLog({
 		EmbedMessage = "**Screenshot of:** `"..GetPlayerName(tId).."`\n**Requested by:** `"..src.."`",
 		player_id = tId,
 		channel = "screenshot",
 		screenshot = true
 	})
-end)
+end/
 
-lib.cron.new('*/15 * * * *', function(toto, date)
+RegisterNetEvent("JD_logsV3:ScreenshotCommand", ScreenshotCommand)
+
+lib.cron.new('*/30 * * * *', function()
 	print("LOG : Running the whole player list screenshotings")
 
 	local xPlayers = ESX.GetExtendedPlayers()
 	
 	for k, xPlayer in pairs(xPlayers) do
-		TriggerEvent("JD_logsV3:ScreenshotCommand", xPlayer.source, "SERVER")
+		ScreenshotCommand(xPlayer.source, "SERVER")
+		Wait(3000)
 	end
 end)
