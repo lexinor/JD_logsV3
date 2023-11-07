@@ -41,7 +41,7 @@ function ScreenshotCommand(tId, src)
 		channel = "screenshot",
 		screenshot = true
 	})
-end/
+end
 
 RegisterNetEvent("JD_logsV3:ScreenshotCommand", ScreenshotCommand)
 
